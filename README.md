@@ -48,6 +48,33 @@ Other scripts:
 
 ---
 
+## Docker: type checks and build
+
+Install Docker Desktop and start its Linux containers engine. The Docker workflow
+uses Node.js 24 and installs the locked dependencies with `npm ci`.
+
+Run the TypeScript checks:
+
+```powershell
+docker build --target verify -t file-browser-agent-check .
+```
+
+Build and export the bundled files to the local `out` folder:
+
+```powershell
+docker build --output type=local,dest=./out .
+```
+
+The exported files are build output, not a Windows installer. Run the desktop app
+on Windows using the native Install & Run steps above. This container does not
+launch Electron or provide access to Windows Explorer or `safeStorage`.
+
+The build does not need an Anthropic API key. `.env` files and local dependencies
+are excluded from the Docker build context. If type checking reports source
+errors, fix them before the `verify` target can pass; the build target is separate.
+
+---
+
 ## Skills folder
 
 Skills are stored in **your user folder**, by default under:
