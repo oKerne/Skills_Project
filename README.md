@@ -42,7 +42,7 @@ Other scripts:
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Run in development mode (HMR) |
-|` | Build the app (`electron-vite build`) |
+| `npm run build` | Build the app (`electron-vite build`) |
 | `npm start` | Run the build (preview) |
 | `npm run typecheck` | Type-check both main and renderer |
 
